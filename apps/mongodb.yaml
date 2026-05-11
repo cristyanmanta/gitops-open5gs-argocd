@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: registry-1.docker.io/bitnamicharts
     chart: mongodb
-    targetRevision: 16.5.41
+    targetRevision: 15.6.16
     helm:
       values: |
         auth:
