@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: registry-1.docker.io/bitnamicharts
     chart: mongodb
-    targetRevision: 15.6.16
+    targetRevision: 16.5.41
     helm:
       values: |
         auth:
@@ -19,6 +19,10 @@ spec:
         persistence:
           enabled: true
           size: 2Gi
+        image:
+          registry: docker.io
+          repository: bitnamilegacy/mongodb
+          tag: 7.0.14-debian-12-r0
         resources:
           requests:
             cpu: 100m
