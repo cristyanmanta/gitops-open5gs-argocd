@@ -17,9 +17,11 @@ spec:
         mnc: "01"
         tac: 1
         sst: 1
+        webui:
+          enabled: false
         mongodb:
           enabled: false
-          uri: "mongodb://mongodb.open5gs.svc.cluster.local:27017/open5gs"
+          uri: "mongodb://open5gs-mongodb/open5gs"
         amf:
           resources:
             requests: { cpu: 50m, memory: 64Mi }
