@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://openverso-charts.github.io/charts
+    repoURL: https://gradiant.github.io/openverso-charts/
     chart: open5gs-webui
     targetRevision: 0.46.4
     helm:
