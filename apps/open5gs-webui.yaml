@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: open5gs-webui
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: default
+  source:
+    repoURL: https://openverso-charts.github.io/charts
+    chart: open5gs-webui
+    targetRevision: 0.46.4
+    helm:
+      values: |
+        mongodb:
+          enabled: false
+          uri: "mongodb://mongodb.open5gs.svc.cluster.local:27017/open5gs"
+        service:
+          type: ClusterIP
+          port: 9999
+        resources:
+          requests: { cpu: 50m, memory: 64Mi }
+          limits: { cpu: 200m, memory: 128Mi }
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: open5gs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

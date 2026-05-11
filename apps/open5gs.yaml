@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: open5gs
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL: https://openverso-charts.github.io/charts
+    chart: open5gs
+    targetRevision: 2.2.6
+    helm:
+      values: |
+        mcc: "001"
+        mnc: "01"
+        tac: 1
+        sst: 1
+        mongodb:
+          enabled: false
+          uri: "mongodb://mongodb.open5gs.svc.cluster.local:27017/open5gs"
+        amf:
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits: { cpu: 200m, memory: 128Mi }
+        smf:
+          resources:
+            requests: { cpu: 50m, memory: 64Mi }
+            limits: { cpu: 200m, memory: 128Mi }
+        upf:
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits: { cpu: 500m, memory: 256Mi }
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: open5gs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
