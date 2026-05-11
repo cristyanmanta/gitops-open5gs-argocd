@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: registry-1.docker.io/gradiant
     chart: open5gs-webui
-    targetRevision: 2.3.1
+    targetRevision: 2.2.5
     helm:
       values: |
         mongodb:
