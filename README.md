@@ -1,0 +1,1 @@
+# gitops-5gscore-argocd
