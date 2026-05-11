@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: registry-1.docker.io/gradiant
     chart: open5gs
-    targetRevision: 2.3.4
+    targetRevision: 2.2.6
     helm:
       values: |
         mcc: "001"
