@@ -13,6 +13,7 @@ spec:
     targetRevision: 15.6.16
     helm:
       values: |
+        fullnameOverride: open5gs-mongodb
         auth:
           enabled: false
         architecture: standalone
