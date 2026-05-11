@@ -22,7 +22,7 @@ spec:
           http:
             type: NodePort
             ports:
-              http: "9999"
+              http: 9999
             nodePorts:
               http: "30999"
         ingress:
