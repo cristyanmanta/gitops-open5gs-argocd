@@ -13,19 +13,24 @@ spec:
     targetRevision: 2.2.5
     helm:
       values: |
+        dbURI: "mongodb://open5gs-mongodb/open5gs"
         mongodb:
           enabled: false
-          uri: "mongodb://open5gs-mongodb/open5gs"
-        initContainer:
-          image:
-            repository: bitnamilegacy/mongodb
-            tag: 4.4.15-debian-10-r33
+          auth:
+            enabled: false
         service:
           type: ClusterIP
-          port: 9999
+          ports:
+            http: 9999
+        ingress:
+          enabled: false
         resources:
-          requests: { cpu: 50m, memory: 64Mi }
-          limits: { cpu: 200m, memory: 128Mi }
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi
   destination:
     server: https://kubernetes.default.svc
     namespace: open5gs
@@ -33,3 +38,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
