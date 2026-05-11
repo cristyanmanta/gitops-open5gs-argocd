@@ -8,9 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: registry-1.docker.io/gradiant
-    chart: open5gs-webui
-    targetRevision: 2.2.5
+    repoURL: https://github.com/cristyanmanta/gitops-open5gs-argocd.git
+    targetRevision: main
+    path: charts/open5gs-webui
     helm:
       values: |
         dbURI: "mongodb://open5gs-mongodb/open5gs"
