@@ -21,9 +21,4 @@ each workload Application in dependency order via sync waves.
 
 ## How to change things
 
-Edit the values inline in `apps/<workload>.yaml`, commit, push. Argo CD
-<<<<<<< HEAD
-auto-syncs within 3 minutes.
-=======
-auto-syncs within 3 minutes.
->>>>>>> 3fe3b69 (Initial GitOps structure for Open5GS PoC with ArgoCD)
+Edit the values inline in `apps/<workload>.yaml`, commit, push.
