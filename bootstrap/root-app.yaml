@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/cristyanmanta/gitops-open5gs-argodcd.git
+    repoURL: https://github.com/cristyanmanta/gitops-open5gs-argocd.git
     targetRevision: main
     path: apps
     directory:
