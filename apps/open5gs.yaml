@@ -23,7 +23,6 @@ spec:
           enabled: false
           uri: "mongodb://open5gs-mongodb/open5gs"
         amf:
-          replicas: 2
           resources:
             requests: { cpu: 50m, memory: 64Mi }
             limits: { cpu: 200m, memory: 128Mi }
