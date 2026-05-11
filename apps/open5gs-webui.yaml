@@ -15,7 +15,11 @@ spec:
       values: |
         mongodb:
           enabled: false
-          uri: "mongodb://mongodb.open5gs.svc.cluster.local:27017/open5gs"
+          uri: "mongodb://open5gs-mongodb/open5gs"
+        initContainer:
+          image:
+            repository: bitnamilegacy/mongodb
+            tag: 4.4.15-debian-10-r33
         service:
           type: ClusterIP
           port: 9999
