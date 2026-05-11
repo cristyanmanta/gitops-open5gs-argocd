@@ -8,9 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://gradiant.github.io/openverso-charts/
+    repoURL: registry-1.docker.io/gradiant
     chart: open5gs
-    targetRevision: 2.2.6
+    targetRevision: 2.3.4
     helm:
       values: |
         mcc: "001"
