@@ -19,18 +19,16 @@ spec:
           auth:
             enabled: false
         service:
-          type: ClusterIP
+          type: NodePort
           ports:
             http: 9999
+          nodePorts:
+            http: 30999
         ingress:
           enabled: false
         resources:
-          requests:
-            cpu: 50m
-            memory: 64Mi
-          limits:
-            cpu: 200m
-            memory: 128Mi
+          requests: { cpu: 50m, memory: 64Mi }
+          limits: { cpu: 200m, memory: 128Mi }
   destination:
     server: https://kubernetes.default.svc
     namespace: open5gs
