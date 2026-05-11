@@ -18,12 +18,13 @@ spec:
           enabled: false
           auth:
             enabled: false
-        service:
-          type: NodePort
-          ports:
-            http: 9999
-          nodePorts:
-            http: 30999
+        services:
+          http:
+            type: NodePort
+            ports:
+              http: 9999
+            nodePorts:
+              http: 30999
         ingress:
           enabled: false
         resources:
