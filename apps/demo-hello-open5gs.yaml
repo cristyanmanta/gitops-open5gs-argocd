@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-hello-open5gs
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  project: default
+  sources:
+    # Helm chart — the application
+    - repoURL: https://github.com/cristyanmanta/gitops-open5gs-argocd.git
+      targetRevision: main
+      path: charts/demo-hello-open5gs
+      helm:
+        releaseName: demo-hello-open5gs
+    # Kustomize overlay — patches the Helm output
+    - repoURL: https://github.com/cristyanmanta/gitops-open5gs-argocd.git
+      targetRevision: main
+      path: overlays/demo-hello-open5gs
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
