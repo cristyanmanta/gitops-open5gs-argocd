@@ -1,0 +1,6 @@
+apiVersion: v2
+name: demo-hello-open5gs
+description: Tiny demo workload for GitOps live-demo flows
+type: application
+version: 0.1.0
+appVersion: "1.0"
