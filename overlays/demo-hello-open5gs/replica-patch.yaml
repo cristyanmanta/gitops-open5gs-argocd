@@ -1,0 +1,6 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-hello-open5gs
+spec:
+  replicas: 2          # ← THE DEMO CHANGE TARGET
